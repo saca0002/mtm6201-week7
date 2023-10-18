@@ -10,9 +10,82 @@
 <body>
     <div class="container">
         <h1>SVG - Scalable Vector Graphics</h1>
+        
+        <!-- we can add a .svg file using img tag -->
+        <img src="images/myfirst.svg" alt="square with a circle in the middle">
+        
+        <!-- we can embed the svg code directly in the HTML -->
+        <svg width="200" height="200" viewBox="0 0 200 200" class="dice">
+            <rect x="0" y="0" width="200" height="200" fill="#4dd0e1" rx="8" ry="8"/>
+            <circle cx="100" cy="100" r="25" fill="#d50000"/>
+        </svg>
+
+        <!-- Dice with 4 dots -->
+        <svg width="200" height="200" viewBox="0 0 200 200" class="dice">
+            <rect x="0" y="0" width="200" height="200" fill="#4dd0e1" rx="8" ry="8"/>
+            <circle cx="50" cy="50" r="25" fill="#d50000" id="dot"/>
+            <use xlink:href="#dot" x="100"></use>
+            <use xlink:href="#dot" y="100"></use>
+            <use xlink:href="#dot" x="100" y="100"></use>
+        </svg>
+
+        <!-- Dice with 5 dots, using defs -->
+        <svg width="200" height="200" viewBox="0 0 200 200" class="dice5">
+            <defs>
+                <rect x="0" y="0" width="200" height="200" fill="#4dd0e1" rx="8" ry="8" id="rect"/>
+                <circle r="25" fill="#d50000" id="point"/>
+            </defs>
+            <use xlink:href="#rect"></use> 
+            <g>
+                <use xlink:href="#point" x="50" y="50"></use>
+                <use xlink:href="#point" x="50" y="150"></use>
+                <use xlink:href="#point" x="150" y="150"></use>
+                <use xlink:href="#point" x="150" y="50"></use>
+                <use xlink:href="#point" x="100" y="100"></use>
+                
+            </g>           
+        </svg>
+
+        <!-- Gradient and Text -->
+        <svg width="250" height="50" viewBox="0 0 250 50">
+            <defs>
+                <linearGradient id="mygrad">
+                    <stop offset="0%" stop-color="#f57c00"/>
+                    <stop offset="50%" stop-color="#f57056"/>
+                    <stop offset="100%" stop-color="#d50011"/>
+                </linearGradient>
+            </defs>
+            <text x="0" y="50" fill="url(#mygrad)" class="coloured">Coloured</text>
+        </svg>
+
+        <!-- SVG Pattern and Text -->
+        <svg width="350" height="150" viewBox="0 0 400 150">
+            <defs>
+                <pattern width="20" height="20" id="cat" patternUnits="userSpaceOnUse">
+                    <image xlink:href="https://www.pngmart.com/files/15/Face-Cat-Vector-PNG-Transparent-Image.png" width="20" height="20"/>
+                </pattern>
+            </defs>
+            <text x="0" y="150" fill="url(#cat)" class="cats-text">Cats</text>
+        </svg>
+
+        <!-- Smiley SVG -->
+        <svg id="smily" viewBox="0 0 487 484" width="487" height="484">
+            <g id="face">
+              <circle class="cls-1" cx="241" cy="243" r="234" />
+            </g>
+            <path id="mouth" class="cls-2" d="M100,292H381.79s-18,78-140.9,78S100,292,100,292Z" />
+            <ellipse id="eye-l" class="cls-2" cx="141.5" cy="154" rx="37.5" ry="65" />
+            <ellipse id="eye-r" class="cls-2" cx="342.5" cy="154" rx="37.5" ry="65" />
+            <circle class="pupil" id="pupil-l" cx="137.5" cy="182.5" r="24.5" />
+            <circle class="pupil" id="pupil-r" cx="337.5" cy="182.5" r="24.5" />
+            <path id="eyelash-l" class="cls-3" d="M179,154c-37,2-37,0-75,0,0-35.9,16.79-65,37.5-65S179,118.1,179,154Z" />
+            <path id="eyelash-r" class="cls-3" d="M380,154c-37,2-37,0-75,0,0-35.9,16.79-65,37.5-65S380,118.1,380,154Z" />
+          </svg>
     </div>
 
-    
+
+
+
 
 </body>
 
